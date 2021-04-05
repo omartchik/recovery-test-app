@@ -1,20 +1,23 @@
 class RestaurantsController < ApplicationController
+  # EXECUTION AVANT
+  before_action :set_restaurant, only: [:show, :edit, :destroy, :update]
+  def set_restaurant
+  @restaurant = Restaurant.find(params[:id])
+  end
+
 # LISTE DES RESTAURANTS
   def index
   @restaurants = Restaurant.all
 end
 # DETAILS DU RESTAURANT
 def show
-  @restaurant = Restaurant.find(params[:id])
 end
 
 # EDITER UN RESTAURANT
 def edit
-  @restaurant = Restaurant.find(params[:id])
 end
 # MISE A JOUR
 def update
-  @restaurant = Restaurant.find(params[:id])
   @restaurant.update(restaurant_params)
   redirect_to(restaurants_path)
 end
@@ -30,7 +33,6 @@ def create
 end
 # SUPPRIMER UN RESTAURANT
 def destroy
-  @restaurant = Restaurant.find(params[:id])
   @restaurant.destroy
   redirect_to(restaurants_path)
 end
