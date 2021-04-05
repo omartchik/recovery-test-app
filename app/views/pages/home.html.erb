@@ -1,0 +1,13 @@
+<h1>HOME</h1>
+<p>BONJOUR, IL EST <%= Time.now %></p>
+<h2>La liste des memebres de notre équipe</h2>
+<% @membres.each do |membre|%>
+<ol>
+  <li><%= membre %></li>
+</ol>
+<% end %>
+<form action="/" method="get">
+<input type="text" name="membre" value="<%= params[:membre]%>" placeholder="taper le nom de la personne que vous cherchez">
+<input type="submit">
+</form>
+<%= link_to 'about', about_path %>
