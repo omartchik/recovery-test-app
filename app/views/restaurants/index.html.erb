@@ -1,1 +1,13 @@
 <h1>tous les restaurants</h1>
+<%# affichage de la liste des restaurants %>
+<% @restaurants.each do |restaurant| %>
+  <ul>
+    <li>
+      <h1><%= restaurant.name.upcase %></h1>
+      <%= link_to "voir détail", restaurant_path(restaurant) %>
+      <%= link_to "supprimer le restaurant", restaurant_path(restaurant), method: :delete %>
+    </li>
+  </ul>
+<% end %>
+<%= link_to "CREER UN NOUVEAU RESTAURANT", new_restaurant_path %>
+<%= link_to 'go home', root_path %>
