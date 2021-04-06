@@ -2,15 +2,47 @@
   <div class="row">
     <div class="col-6 offset-3">
       <h1>Liste des Restaurants en ligne</h1>
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <%# LISTING DES RESTAURANTS___________________________________________________ %>
       <% @restaurants.each do |restaurant| %>
-      <ul>
-        <li>
-          <h2><%= restaurant.name %></h2>
-          <%= link_to 'Détails', restaurant_path(restaurant) %>
-          <%= link_to 'Editer', edit_restaurant_path(restaurant) %>
-          <%= link_to 'Supprimer', restaurant_path(restaurant), method: :delete %>
-        </li>
-      </ul>
+      <div class="card">
+        <%= image_tag 'dinosaure.png', class: "card-img-top"  %>
+        <div class="card-body">
+          <h5 class="card-title"><%= restaurant.name %></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <%= link_to 'Détails', restaurant_path(restaurant), class: "btn btn-primary w-100 mt-2" %>
+          <%= link_to 'Editer', edit_restaurant_path(restaurant), class: "btn btn-primary w-100 mt-2" %>
+          <%= link_to 'Supprimer', restaurant_path(restaurant), method: :delete, class: "btn btn-primary w-100 mt-2", data: {confirm: "ETES VOUS SUR?👀"} %>
+        </div>
+      </div>
+
+
       <% end %>
       <%= link_to "CREER UN NOUVEAU RESTAURANT", new_restaurant_path %>
 
