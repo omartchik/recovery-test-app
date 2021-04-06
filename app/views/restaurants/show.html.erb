@@ -1,4 +1,6 @@
 <h2><%= @restaurant.name %></h2>
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.rating %></p>
+<%= link_to "CONTACTER LE CHEF", chef_restaurant_path(@restaurant) %>
+<br>
 <%= link_to "Retour à la liste des restaurants", restaurants_path %>

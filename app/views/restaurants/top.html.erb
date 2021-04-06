@@ -1,0 +1,12 @@
+<h1>LES RESTAURANTS 5 ETOILES</h1>
+<% @restaurants.each do |restaurant| %>
+  <ul>
+    <li>
+      <h2><%= restaurant.name %></h2>
+      <%= link_to 'Détails', restaurant_path(restaurant) %>
+      <%= link_to 'Editer', edit_restaurant_path(restaurant) %>
+      <%= link_to 'Supprimer', restaurant_path(restaurant), method: :delete %>
+    </li>
+  </ul>
+<% end %>
+<%= link_to "CREER UN NOUVEAU RESTAURANT", new_restaurant_path %>

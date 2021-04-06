@@ -4,6 +4,15 @@ class RestaurantsController < ApplicationController
   def set_restaurant
   @restaurant = Restaurant.find(params[:id])
   end
+# AFFICHER LES RESTAURANTS TOP 5
+def top
+  @restaurants = Restaurant.where(rating: 5)
+end
+# AFFICHER LE NOM DU CHEF DU RESTAURANT
+def chef
+  @restaurant = Restaurant.find(params[:id])
+  @chef_name = @restaurant.chef_name
+end
 
 # LISTE DES RESTAURANTS
   def index
@@ -41,7 +50,7 @@ end
 # PRIVATE
 private
 def restaurant_params
-  params.require(:restaurant).permit(:name, :rating, :address)
+  params.require(:restaurant).permit(:name, :rating, :address, :chef_name)
 end
 
 
