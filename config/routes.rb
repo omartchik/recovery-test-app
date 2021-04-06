@@ -7,7 +7,8 @@ resources :restaurants do
     get :chef
   end
 end
-resources :restraurants do
+resources :restaurants do
   resources :reviews, only: [:new, :create]
 end
+resources :reviews, only: [:destroy]
 end

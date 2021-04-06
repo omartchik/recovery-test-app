@@ -1,6 +1,23 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.rating %></p>
-<%= link_to "CONTACTER LE CHEF", chef_restaurant_path(@restaurant) %>
-<br>
-<%= link_to "Retour à la liste des restaurants", restaurants_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h2><%= @restaurant.name %></h2>
+      <p><%= @restaurant.address %></p>
+      <p><%= @restaurant.rating %></p>
+      <h2>Comments</h2>
+      <% @restaurant.reviews.each do |review| %>
+      <ul>
+        <li><%= review.content %></li>
+        <%= link_to "Supprimer", review_path(review), method: :delete, data: {confirm: "ETES VOUS SUR 👀 ??"} %>
+
+      </ul>
+      <% end %>
+      <br>
+      <%= link_to "Laisser un commentaire", new_restaurant_review_path(@restaurant) %>
+      <br>
+      <%= link_to "CONTACTER LE CHEF", chef_restaurant_path(@restaurant) %>
+      <br>
+      <%= link_to "Retour à la liste des restaurants", restaurants_path %>
+    </div>
+  </div>
+</div>

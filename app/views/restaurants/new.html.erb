@@ -1,8 +1,8 @@
 
 <%= simple_form_for @restaurant do |f| %>
-  <%= f.text_field :name %>
-  <%= f.number_field :rating %>
-  <%= f.text_field :address %>
-  <%= f.text_field :chef_name %>
-  <%= f.submit%>
+  <%= f.input :name %>
+  <%= f.input :rating %>
+  <%= f.input :address %>
+  <%= f.input :chef_name %>
+  <%= f.submit "Valider le restaurant"%>
 <% end %>
